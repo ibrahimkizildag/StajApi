@@ -99,11 +99,19 @@ namespace Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Adres")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("KULLANICI_ADI")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SIFRE")
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SAFEWORD")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -145,13 +153,13 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "58877eed-44c8-4dd7-832f-80744cb18205",
+                            Id = "c3eb197d-7eef-4cd3-b7b8-891ff6889e74",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "08444d78-b4d5-433a-bc3d-1dd2656671be",
+                            Id = "9cfc4b4c-e9a7-4d8e-8405-c81711472241",
                             Name = "User",
                             NormalizedName = "USER"
                         });

@@ -13,7 +13,8 @@ namespace Api.Mappers
                 ADI = userModel.ADI,
                 SOYADI = userModel.SOYADI,
                 KULLANICI_ADI = userModel.KULLANICI_ADI,
-                SIFRE = userModel.SIFRE
+                SAFEWORD = userModel.SAFEWORD,
+                SIFRE = userModel.Password
             };
         }
         public static UserModel ToUserFromCreateDto(this CreateUserRequestDto userDto)
@@ -24,7 +25,8 @@ namespace Api.Mappers
                 ADI = userDto.ADI,
                 SOYADI = userDto.SOYADI,
                 KULLANICI_ADI = userDto.KULLANICI_ADI,
-                SIFRE = userDto.SIFRE
+                SAFEWORD = userDto.SAFEWORD,
+                Password = userDto.SIFRE
             };
         }
     }

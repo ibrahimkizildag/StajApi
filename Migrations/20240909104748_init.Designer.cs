@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240820142723_SeedRole")]
-    partial class SeedRole
+    [Migration("20240909104748_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,10 @@ namespace Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("SAFEWORD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SIFRE")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -148,13 +152,13 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "58877eed-44c8-4dd7-832f-80744cb18205",
+                            Id = "a3483e43-9af2-403a-822d-1c001d69fae9",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "08444d78-b4d5-433a-bc3d-1dd2656671be",
+                            Id = "508082c1-bf01-4a7d-a344-e25a76918279",
                             Name = "User",
                             NormalizedName = "USER"
                         });

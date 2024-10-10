@@ -9,6 +9,7 @@ namespace Api.Dtos.User
         public string ADI { get; set; }
         public string SOYADI { get; set; }
         public string KULLANICI_ADI { get; set; }
+        public string SAFEWORD { get; set; }
         public string SIFRE { get; set; }
     }
 }

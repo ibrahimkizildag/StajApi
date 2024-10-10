@@ -7,6 +7,8 @@ using Api.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Api.Dtos.User;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Api.Controllers
 {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240820142708_Identity")]
-    partial class Identity
+    [Migration("20241010142253_UserAdres")]
+    partial class UserAdres
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,11 +102,19 @@ namespace Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Adres")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("KULLANICI_ADI")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SIFRE")
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SAFEWORD")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -148,13 +156,13 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7335e077-6c56-48a1-b284-409b8fd483d4",
+                            Id = "c3eb197d-7eef-4cd3-b7b8-891ff6889e74",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "759d040b-0a5d-4f23-80e6-61df700c2d8c",
+                            Id = "9cfc4b4c-e9a7-4d8e-8405-c81711472241",
                             Name = "User",
                             NormalizedName = "USER"
                         });

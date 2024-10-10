@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Api.Migrations
 {
     /// <inheritdoc />
-    public partial class Identity : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,6 +61,7 @@ namespace Api.Migrations
                     ADI = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SOYADI = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KULLANICI_ADI = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SAFEWORD = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SIFRE = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -179,8 +180,8 @@ namespace Api.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7335e077-6c56-48a1-b284-409b8fd483d4", null, "Admin", "ADMIN" },
-                    { "759d040b-0a5d-4f23-80e6-61df700c2d8c", null, "User", "USER" }
+                    { "508082c1-bf01-4a7d-a344-e25a76918279", null, "User", "USER" },
+                    { "a3483e43-9af2-403a-822d-1c001d69fae9", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(

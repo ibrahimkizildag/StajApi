@@ -1,4 +1,4 @@
-#region fgjjf
+//#region
 //using Api.Data;
 //using Api.Models;
 //using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -93,7 +93,7 @@
 //app.MapControllers();
 
 //app.Run();
-#endregion
+//#endregion
 
 using Api.Data;
 using Api.Interfaces;
@@ -153,7 +153,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddScoped<ITokenService,TokenService >();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 

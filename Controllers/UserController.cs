@@ -43,7 +43,7 @@ namespace Api.Controllers
         public IActionResult Login([FromBody] LoginDto loginDto)
         {
             var user = _context.Users
-                .SingleOrDefault(u => u.KULLANICI_ADI == loginDto.Username && u.SIFRE == loginDto.Password);
+                .SingleOrDefault(u => u.KULLANICI_ADI == loginDto.Username && u.Password == loginDto.Password);
 
             if (user == null)
             {
@@ -98,7 +98,8 @@ namespace Api.Controllers
                     userModel.ADI = updateDto.ADI;
                     userModel.SOYADI = updateDto.SOYADI;
                     userModel.KULLANICI_ADI = updateDto.KULLANICI_ADI;
-                    userModel.SIFRE = updateDto.SIFRE;
+                 
+                    userModel.Password = updateDto.SIFRE;
 
                     _context.SaveChanges();
                     return Ok(userModel);
@@ -137,6 +138,35 @@ namespace Api.Controllers
                 Token = token
             });
         }
+        [HttpPost]
+        [Route("resetPassword")]
+        public IActionResult ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            // Veritabanında kullanıcıyı safeword'e göre bul
+            var user = _context.Users
+                .FirstOrDefault(u => u.KULLANICI_ADI == resetPasswordDto.Username && u.SAFEWORD == resetPasswordDto.Safeword);
+
+            if (user == null)
+            {
+                return BadRequest("Kullanıcı veya safeword hatalı.");
+            }
+
+            // Yeni şifreyi belirle
+            user.Password = resetPasswordDto.NewPassword;
+
+            // Şifreyi veritabanına kaydet
+            _context.SaveChanges();
+
+            // Yeni token oluştur
+            var token = GenerateToken(user.ID.ToString());
+
+            return Ok(new
+            {
+                Message = "Şifre başarıyla güncellendi.",
+                Token = token
+            });
+        }
+
 
         private string GenerateToken(string userId)
         {
