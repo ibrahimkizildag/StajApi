@@ -43,7 +43,7 @@ namespace Api.Controllers
         public IActionResult Login([FromBody] LoginDto loginDto)
         {
             var user = _context.Users
-                .SingleOrDefault(u => u.KULLANICI_ADI == loginDto.Username && u.Password == loginDto.Password);
+                .SingleOrDefault(u => u.KULLANICI_ADI == loginDto.Username && u.SIFRE == loginDto.Password);
 
             if (user == null)
             {
@@ -99,7 +99,7 @@ namespace Api.Controllers
                     userModel.SOYADI = updateDto.SOYADI;
                     userModel.KULLANICI_ADI = updateDto.KULLANICI_ADI;
                  
-                    userModel.Password = updateDto.SIFRE;
+                    userModel.SIFRE = updateDto.SIFRE;
 
                     _context.SaveChanges();
                     return Ok(userModel);
@@ -152,7 +152,7 @@ namespace Api.Controllers
             }
 
             // Yeni şifreyi belirle
-            user.Password = resetPasswordDto.NewPassword;
+            user.SIFRE = resetPasswordDto.NewPassword;
 
             // Şifreyi veritabanına kaydet
             _context.SaveChanges();
